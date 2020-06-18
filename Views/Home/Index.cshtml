@@ -1,0 +1,45 @@
+﻿
+@model WebApplicationTest3.Models.OperationModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        <style>
+            fieldset {
+                background-color: #eeeeee;
+            }
+
+            legend {
+                background-color: gray;
+                padding: 5px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <fieldset>
+                <legend style="color:blue"> Operation Of Two Numbers </legend>
+                <strong>First Number </strong> <br>@Html.TextBoxFor(x => x.FirstNumber, new { @type = "number"}) <br><br>
+                <strong>Second Number </strong><br>@Html.TextBoxFor(x => x.SecondNumber, new { @type = "number"}) <br><br>
+
+                <input type="submit" value="Add" name="command" />
+                <input type="submit" value="Subtract" name="command" />
+                <input type="submit" value="Muliply" name="command" />
+                <input type="submit" value="Divid" name="command" />
+                <br><br>
+                <h2 style="color:red">
+                    @Html.Label("Result is :")
+                    @Html.DisplayFor(x => x.Result)
+                </h2>
+            </fieldset>
+        }
+    </body>
+</html>
